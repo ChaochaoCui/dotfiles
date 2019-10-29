@@ -1,5 +1,6 @@
 set encoding=utf-8
 scriptencoding utf-8
+let mapleader="\<Space>"
 
 " Make the VIM happen.
 set nocompatible
@@ -113,7 +114,7 @@ set incsearch
 " Configure the delay for custom chained keybinds.
 set timeoutlen=250
 " Highlight the screen line of the cursor
-set cursorline
+" set cursorline
 
 " --- NERDTree settings ---
 
@@ -208,6 +209,7 @@ nmap <leader>cc  <plug>NERDCommenterToggle
 
 " auto complete
 Plug 'shougo/deoplete.nvim'
+Plug 'tbodt/deoplete-tabnine', {'do': './install.sh' }
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 let g:deoplete#enable_at_startup = 1
@@ -261,6 +263,17 @@ Plug 'mkitt/tabline.vim'
 
 " Plug 'liuchengxu/vim-which-key'
 
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'fcangialosi/bootlin.vim'
+
+Plug 'itchyny/vim-cursorword'
+
+Plug 'lfv89/vim-interestingwords'
+
+
+
+Plug  'vim-scripts/DoxygenToolkit.vim'
 call plug#end()
 
 syntax on 
@@ -274,6 +287,7 @@ set updatetime=100
 
 let mapleader = ','
 let maplocalleader = '\'
+let g:bootlin_version = "4.19.1"
 
 nmap <F8> :TagbarToggle<CR>
 nmap <F2> :NERDTreeToggle<CR>
