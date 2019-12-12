@@ -209,7 +209,7 @@ nmap <leader>cc  <plug>NERDCommenterToggle
 
 " auto complete
 Plug 'shougo/deoplete.nvim'
-Plug 'tbodt/deoplete-tabnine', {'do': './install.sh' }
+" Plug 'tbodt/deoplete-tabnine', {'do': './install.sh' }
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 let g:deoplete#enable_at_startup = 1
@@ -278,7 +278,8 @@ call plug#end()
 
 syntax on 
 filetype on
-set relativenumber
+" set relativenumber
+set nu
 
 " Show the current command at the bottom
 set showcmd
