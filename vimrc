@@ -1,4 +1,8 @@
+" Vim Base Settings {{{
 set nocompatible
+
+" show the current command at the bottom
+set showcmd
 
 let mapleader = " "
 
@@ -13,8 +17,11 @@ noremap <leader>g :grep! -R '<cword>' .<cr>
 set number
 set foldmethod=marker
 
+syntax on
+filetype plugin indent on
+" }}}
 
-" Vim Plugin Manager --- vim-plug {{{
+" vim-plug {{{
 if empty(glob('~/.vim/autoload/plug.vim'))
     silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs 
        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -29,15 +36,19 @@ Plug 'ludovicchabant/vim-gutentags'
 set statusline+=%{gutentags#statusline()}
 Plug 'skywind3000/gutentags_plus'
 
+Plug 'majutsushi/tagbar'
+
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 call plug#end()
 " }}}
 
-
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " }}}
-" gutentags config {{{
+
+" gutentags {{{
 " let g:gutentags_dont_load = 1
 let g:gutentags_debug = 1
 let g:gutentags_enabled = 1
@@ -47,6 +58,15 @@ let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['.root', '.project', '.cproject']
 " }}}
 
-" gutentags_plus config {{{
+" gutentags_plus {{{
 let g:gutentags_plus_switch = 1
+" }}}
+
+" tagbar {{{
+noremap <F8> :TagbarToggle<cr>
+" }}}
+
+" nerdtree {{{
+noremap <F2> :NERDTreeToggle<cr>
+autocmd vimenter * NERDTree
 " }}}
