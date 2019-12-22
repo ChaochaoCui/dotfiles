@@ -13,6 +13,7 @@ noremap <leader>ev :vsplit $MYVIMRC<cr>
 noremap <leader>sv :source $MYVIMRC<cr>
 
 noremap <leader>g :grep! -R '<cword>' .<cr>
+noremap <leader>] :tj<cr>
 
 set number
 set foldmethod=marker
@@ -32,9 +33,9 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'editorconfig/editorconfig-vim'
 
-Plug 'ludovicchabant/vim-gutentags'
-set statusline+=%{gutentags#statusline()}
-Plug 'skywind3000/gutentags_plus'
+"Plug 'ludovicchabant/vim-gutentags'
+"set statusline+=%{gutentags#statusline()}
+"Plug 'skywind3000/gutentags_plus'
 
 Plug 'majutsushi/tagbar'
 
