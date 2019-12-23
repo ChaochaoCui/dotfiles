@@ -8,6 +8,7 @@ git config --global user.name "OSer916"
 git config --global user.email "cuichaochao916@gmail.com"
 git config --global core.editor vim
 git config --global merge.tool meld
+git config --global diff.tool icdiff
 
 ln -s $DOTFILES_PATH/vimrc .vimrc
 ln -s $DOTFILES_PAH/bashrc.local .bashrc.local
