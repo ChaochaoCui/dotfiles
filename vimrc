@@ -1,6 +1,8 @@
 " Vim Base Settings {{{
 set nocompatible
 
+set clipboard=unnamedplus
+
 " show the current command at the bottom
 set showcmd
 
@@ -79,11 +81,13 @@ Plug 'airblade/vim-gitgutter'
 
 Plug 'ctrlpvim/ctrlp.vim'
 
+"Plug 'dense-analysis/ale'
+
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
-Plug 'liuchengxu/vim-which-key'
+"Plug 'liuchengxu/vim-which-key'
 call plug#end()
 " }}}
 
@@ -96,7 +100,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 let g:gutentags_debug = 1
 let g:gutentags_enabled = 1
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
-let g:gutentags_add_ctrlp_root_markers = 1
+let g:gutentags_add_ctrlp_root_markers = 0
 let g:gutentags_add_default_project_roots = 0
 let g:gutentags_project_root = ['.root', '.project', '.cproject']
 " }}}
@@ -118,6 +122,9 @@ noremap <F2> :NERDTreeToggle<cr>
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
+
+" ALE (Asynchronous Lint Engine)
+
 
 " vim-airline {{{
 "let g:airline_theme='simple'
