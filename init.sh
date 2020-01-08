@@ -21,5 +21,5 @@ sudo apt install -y zeal
 sudo apt install -y flameshot lnav  icdiff
 sudo apt install -y copyq
 
-# rclone
+# rclone nitroshare
 
