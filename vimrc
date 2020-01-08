@@ -5,9 +5,10 @@ set clipboard=unnamedplus
 
 " show the current command at the bottom
 set showcmd
+set cmdheight=2
 
-let mapleader = " "
-set timeoutlen=250
+let mapleader = ","
+" set timeoutlen=250
 
 inoremap jk <esc>
 inoremap <esc> <nop>
@@ -27,7 +28,12 @@ set background=dark
 set backspace=indent,eol,start
 set cursorline
 set encoding=utf-8
+set helplang=cn
+set fileencodings=utf-8,ucs-bom,gbk,cp936,gb2312,gb18030
 set expandtab
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
 set fileformats=unix,dos
 set foldmethod=marker
 set foldclose=all
@@ -44,8 +50,16 @@ set ruler
 set smartindent
 set wrap
 
+syntax enable
 syntax on
+filetype on
 filetype plugin indent on
+
+set nobackup
+set noswapfile
+set autoread
+set autowrite
+set confirm
 " }}}
 
 " vim-plug {{{
@@ -57,6 +71,7 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/a.vim'
 
@@ -66,6 +81,7 @@ Plug 'skywind3000/gutentags_plus'
 Plug 'majutsushi/tagbar'
 
 Plug 'scrooloose/nerdtree'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 if has('nvim')
@@ -80,12 +96,15 @@ endif
 Plug 'airblade/vim-gitgutter'
 
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mileszs/ack.vim'
 
-"Plug 'dense-analysis/ale'
+Plug 'dense-analysis/ale'
 
-
+Plug 'chxuan/cpp-mode'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+
+Plug 'ryanoasis/vim-devicons'
 
 "Plug 'liuchengxu/vim-which-key'
 call plug#end()
@@ -116,19 +135,61 @@ noremap <F8> :TagbarToggle<cr>
 
 " nerdtree {{{
 noremap <F2> :NERDTreeToggle<cr>
+let g:NERDTreeFileExtensionHighlightFullName = 1
+let g:NERDTreeExactMatchHighlightFullName = 1
+let g:NERDTreePatternMatchHighlightFullName = 1
+let g:NERDTreeHighlightFolders = 1
+let g:NERDTreeHighlightFoldersFullName = 1
+let g:NERDTreeDirArrowExpandable = '▷'
+let g:NERDTreeDirArrowCollapsible = '▼'
 " autocmd vimenter * NERDTree
 " }}}
+
+" nerdtree-git-plugin {{{
+let g:NERDTreeIndicatiorMapCustom = {
+            \ "Modified"  : "✹",
+            \ "Staged"    : "✚",
+            \ "Untracked" : "✭",
+            \ "Renamed"   : "➜",
+            \ "Unmerged"  : "=",
+            \ "Deleted"   : "✖",
+            \ "Dirty"     : "✗",
+            \ "Clean"     : "✔︎",
+            \ "Ingored"   : '☒',
+            \ "Unknown"   : "?",
+            \ }
+"}}}
 
 " deoplete {{{
 let g:deoplete#enable_at_startup = 1
 " }}}
 
-" ALE (Asynchronous Lint Engine)
+" ALE (Asynchronous Lint Engine) {{{
+" }}}
 
 
 " vim-airline {{{
-"let g:airline_theme='simple'
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
 let g:airline#extension#tabline#enabled = 1
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+" }}}
+
+" ack {{{
+nnoremap <leader>F :Ack!<space>
+" }}}
+
+" cpp-mode {{{
+nnoremap <leader>y :CopyCode<cr>
+nnoremap <leader>p :PasteCode<cr>
+nnoremap <leader>U :GoToFunImpl<cr>
+nnoremap <silent> <leader>a :Switch<cr>
 " }}}
 
 " *********Keymaps*********
@@ -140,3 +201,6 @@ let g:airline#extension#tabline#enabled = 1
 " <leader>ce Find egrep pattern under cursor
 " <leader>cf Find file name under cursor
 " <leader>ci Find files #including the file name under cursor
+"
+
+
