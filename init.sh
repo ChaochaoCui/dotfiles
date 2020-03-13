@@ -41,7 +41,6 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
         unzip /tmp/SourceCodePro.zip -d ~/.local/share/fonts/
         fc-cache -f -v
     fi
-
 fi
 
 
