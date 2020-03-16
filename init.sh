@@ -34,6 +34,7 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
     sudo apt install -y ibus-rime
     sudo apt install -y net-tools # ifconfig
+    sudo apt install -y lnav
 
     if [ ! -d "$HOME/.local/share/fonts" ]; then
         mkdir -p ~/.local/share/fonts/
@@ -41,6 +42,9 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
         unzip /tmp/SourceCodePro.zip -d ~/.local/share/fonts/
         fc-cache -f -v
     fi
+
+    sudo add-apt-repository ppa:phoerious/keepassxc -y
+    sudo apt install keepassxc -y
 fi
 
 
@@ -64,5 +68,6 @@ if [[ "$OS_TYPE" == "Darwin" ]]; then
 	brew tap homebrew/cask-fonts
 	brew cask install font-hack-nerd-font
 	brew cask install font-sourcecodepro-nerd-font
+    brew install lnav
 fi
 
