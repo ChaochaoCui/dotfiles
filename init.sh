@@ -28,6 +28,7 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
 	sudo apt install -y flameshot lnav icdiff
 	sudo apt install -y copyq adb
     sudo apt install -y python3-pip python-pip
+    sudo apt install -y python3-tk
     pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
     pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
     pip2 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
