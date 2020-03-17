@@ -28,6 +28,7 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
 	sudo apt install -y flameshot lnav icdiff
 	sudo apt install -y copyq adb
     sudo apt install -y python3-pip python-pip
+    sudo apt install -y python3-tk
     pip2 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
     pip3 install -i https://pypi.tuna.tsinghua.edu.cn/simple pip -U
     pip2 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
@@ -35,6 +36,17 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     sudo apt install -y ibus-rime
     sudo apt install -y net-tools # ifconfig
     sudo apt install -y lnav
+
+    sudo apt install -y openjdk-8-jdk lib32z-dev m4 libxml2-utils
+    sudo apt install -y flex
+    sudo apt install -y p7zip-full
+
+    sudo apt install -y scratch 
+
+    sudo apt install -y npm
+    sudo npm install picgo -g
+
+    sudo apt install protobuf-compiler
 
     if [ ! -d "$HOME/.local/share/fonts" ]; then
         mkdir -p ~/.local/share/fonts/
