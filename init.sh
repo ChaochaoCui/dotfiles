@@ -46,6 +46,8 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     sudo apt install -y npm
     sudo npm install picgo -g
 
+    sudo apt install -y jq shellcheck yapf ccache cloc
+
     sudo apt install protobuf-compiler
 
     if [ ! -d "$HOME/.local/share/fonts" ]; then
