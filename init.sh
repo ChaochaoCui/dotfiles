@@ -24,6 +24,7 @@ echo $OS_TYPE
 if [[ "$OS_TYPE" == "Linux" ]]; then
     sudo dpkg-reconfigure bash
 	sudo apt install -y vim uncrustify gitlint tmux tig tree curl wget
+    sudo apt install exuberant-ctags
 	sudo apt install -y zeal
 	sudo apt install -y flameshot lnav icdiff
 	sudo apt install -y copyq adb
@@ -35,7 +36,7 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     pip3 config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
     sudo apt install -y ibus-rime
     sudo apt install -y net-tools # ifconfig
-    sudo apt install -y lnav
+    sudo apt install -y lnav cmake
 
     sudo apt install -y openjdk-8-jdk lib32z-dev m4 libxml2-utils
     sudo apt install -y flex
@@ -57,6 +58,9 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
 
     sudo add-apt-repository ppa:phoerious/keepassxc -y
     sudo apt install keepassxc -y
+
+
+    sudo apt install gdb-multiarch -y
 fi
 
 
