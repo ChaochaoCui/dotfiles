@@ -71,6 +71,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
+
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/a.vim'
@@ -95,7 +98,10 @@ endif
 " show a git diff in the 'gutter' (sign column)
 Plug 'airblade/vim-gitgutter'
 
-Plug 'ctrlpvim/ctrlp.vim'
+" find
+" Plug 'ctrlpvim/ctrlp.vim'
+Plug 'Yggdroot/LeaderF', { 'do': './install.sh' }
+" grep
 Plug 'mileszs/ack.vim'
 
 Plug 'dense-analysis/ale'
@@ -110,6 +116,10 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " }}}
 
+" local_vimrc {{{
+let g:local_vimrc = [ '.root' ]
+" }}}
+"
 " editorconfig-vim {{{
 let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " }}}
@@ -167,11 +177,11 @@ let g:deoplete#enable_at_startup = 1
 " ALE (Asynchronous Lint Engine) {{{
 " }}}
 
-
 " vim-airline {{{
 let g:airline_theme = 'onedark'
 let g:airline_powerline_fonts = 1
-let g:airline#extension#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
 endif
@@ -181,7 +191,13 @@ let g:airline_right_sep = ''
 let g:airline_right_alt_sep = ''
 " }}}
 
-" ack {{{
+" find, CtrlP, LeaderF {{{
+" }}}
+
+" grep, ack, ag {{{
+if executable('ag')
+    let g:ackprg = 'ag --vimgrep'
+endif
 nnoremap <leader>F :Ack!<space>
 " }}}
 
