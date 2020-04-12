@@ -1,0 +1,2 @@
+let b:ale_linters = ['cppcheck']
+call lh#local_vimrc#munge('whitelist', $HOME.'/codehub/linux/')
