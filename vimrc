@@ -74,6 +74,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'LucHermitte/lh-vim-lib'
 Plug 'LucHermitte/local_vimrc'
 
+Plug 'Shougo/denite.nvim'
+
 Plug 'mhinz/vim-startify'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-scripts/a.vim'
@@ -118,6 +120,9 @@ call plug#end()
 
 " local_vimrc {{{
 let g:local_vimrc = [ '.root' ]
+let g:local_vimrc_options = get(g:, 'local_vimrc_options', {})
+let g:local_vimrc_options.whitelist = [ '.root' ]
+" call lh#local_vimrc#munge('whitelist', $HOME.'/codehub/linux/')
 " }}}
 "
 " editorconfig-vim {{{
