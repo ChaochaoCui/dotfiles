@@ -1,8 +1,6 @@
 #export PATH=/opt/xtensa-esp32-elf/bin:$PATH
 #export PATH=/opt/xtensa-lx106-elf/bin:$PATH
 #export PATH=$HOME/.local/usr/ghidara_9.0/:$PATH
-#export http_proxy=http://127.0.0.1:1080
-#export https_proxy=$http_proxy
+export PATH=$HOME/.local/depot_tools/:$PATH
 #export no_proxy="localhost,127.0.0.1"
-
 # export LC_ALL=C
