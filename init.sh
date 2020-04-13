@@ -51,6 +51,10 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
 
     sudo apt install protobuf-compiler
 
+    # vim deps
+    pip3 install --user --upgrade pynvim
+    pip3 install --user --upgrade msgpack
+    sudo apt install cppcheck
     if [ ! -d "$HOME/.local/share/fonts" ]; then
         mkdir -p ~/.local/share/fonts/
         wget -c https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/SourceCodePro.zip /tmp/
