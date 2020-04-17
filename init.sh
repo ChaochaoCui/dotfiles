@@ -37,6 +37,7 @@ if [[ "$OS_TYPE" == "Linux" ]]; then
     sudo apt install -y ibus-rime
     sudo apt install -y net-tools # ifconfig
     sudo apt install -y lnav cmake
+    sudo apt install -y apvlv
 
     sudo apt install -y openjdk-8-jdk lib32z-dev m4 libxml2-utils
     sudo apt install -y flex
