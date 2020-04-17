@@ -157,6 +157,10 @@ let g:NERDTreeHighlightFolders = 1
 let g:NERDTreeHighlightFoldersFullName = 1
 let g:NERDTreeDirArrowExpandable = '▷'
 let g:NERDTreeDirArrowCollapsible = '▼'
+let g:NERDTreeIgnore = ['.git', '.svn', '\.o$[[file]]', '\~$', '\.vim$']
+let g:NERDTreeQuitOnOpen = 3
+let g:NERDTreeShowBookmarks = 1
+let g:NERDTreeShowLineNumbers = 1
 " autocmd vimenter * NERDTree
 " }}}
 
@@ -198,6 +202,7 @@ let g:airline_right_alt_sep = ''
 
 " find, CtrlP, LeaderF {{{
 let g:Lf_ShortcutF = '<C-P>'
+let g:Lf_RootMarkers = ['.root']
 " }}}
 
 " grep, ack, ag {{{
