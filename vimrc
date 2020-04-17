@@ -197,6 +197,7 @@ let g:airline_right_alt_sep = ''
 " }}}
 
 " find, CtrlP, LeaderF {{{
+let g:Lf_ShortcutF = '<C-P>'
 " }}}
 
 " grep, ack, ag {{{
