@@ -118,6 +118,13 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 " }}}
 
+" startify {{{
+let g:startify_lists = []
+let g:startify_commands = []
+let g:startify_custom_header = 
+        \ startify#center(split(system('cat ~/codehub/dotfiles/keybinds.vim | grep map'), '\n'))
+" }}}
+
 " local_vimrc {{{
 let g:local_vimrc = [ '.root' ]
 let g:local_vimrc_options = get(g:, 'local_vimrc_options', {})
@@ -132,7 +139,7 @@ let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 " gutentags {{{
 " let g:gutentags_dont_load = 1
 let g:gutentags_debug = 1
-let g:gutentags_enabled = 1
+let g:gutentags_enabled = 0
 let g:gutentags_modules = ['ctags', 'gtags_cscope']
 let g:gutentags_add_ctrlp_root_markers = 0
 let g:gutentags_add_default_project_roots = 0
@@ -201,8 +208,34 @@ let g:airline_right_alt_sep = ''
 " }}}
 
 " find, CtrlP, LeaderF {{{
-let g:Lf_ShortcutF = '<C-P>'
+let g:Lf_HideHelp = 1
+
+let g:Lf_ShortcutF = '<leader>ff'
 let g:Lf_RootMarkers = ['.root']
+let g:Lf_DefaultMode = 'NameOnly'
+let g:Lf_CursorBlink = 1
+let g:Lf_WildIgnore = {
+        \ 'dir': ['.git', '.svn', '.hg'],
+        \ 'file': ['*.sw?', '~$*', '*.bak', '*.exe', '*.o', '*.so', '*.py[co]']
+        \}
+let g:Lf_MrcFileExclude = ['*.so']
+if executable('ag')
+    let g:Lf_RgConfig = [
+        \ "--max-columns=150",
+        \ "--type-add web:*.{html,css,js}*",
+        \ "--glob=!git/*",
+        \ "--hidden"
+    \ ]
+endif
+
+if executable('gtags')
+    let g:Lf_GtagsAutoGenerate = 1
+    let g:Lf_Gtagslabel = 'native-pygments'
+    let g:Lf_GtagsSkipSymlink = 'f'
+    let g:Lf_GtagsStoreInProject = 1
+    let g:Lf_JumpToExistingWindow = 1
+endif
+
 " }}}
 
 " grep, ack, ag {{{
@@ -218,6 +251,8 @@ nnoremap <leader>p :PasteCode<cr>
 nnoremap <leader>U :GoToFunImpl<cr>
 nnoremap <silent> <leader>a :Switch<cr>
 " }}}
+
+source $HOME/.vim/keybinds.vim
 
 " *********Keymaps*********
 " <leader>cs Find symbol(reference) under cursor
