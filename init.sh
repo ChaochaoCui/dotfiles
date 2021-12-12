@@ -5,8 +5,8 @@ OS_TYPE=`uname`
 cd $HOME
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
-#git config --global user.name "OSer916"
-#git config --global user.email "cuichaochao916@gmail.com"
+git config --global user.name "OSer916"
+git config --global user.email "cuichaochao916@gmail.com"
 git config --global core.editor vim
 git config --global merge.tool meld
 git config --global diff.tool icdiff
