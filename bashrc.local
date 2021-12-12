@@ -1,6 +1,9 @@
-#export PATH=/opt/xtensa-esp32-elf/bin:$PATH
-#export PATH=/opt/xtensa-lx106-elf/bin:$PATH
-#export PATH=$HOME/.local/usr/ghidara_9.0/:$PATH
-export PATH=$HOME/.local/depot_tools/:$PATH
-#export no_proxy="localhost,127.0.0.1"
-# export LC_ALL=C
+
+export_path() {
+   if [[ -e $1 ]]; then
+     export PATH=$1:$PATH
+   fi
+}
+
+export_path "$HOME/.local/bin"
+export_path "$HOME/.local/flutter/bin"
