@@ -1,8 +1,18 @@
 #!/bin/bash
 
+set -e 
+
 DOTFILES_PATH=`pwd`
 OS_TYPE=`uname`
 cd $HOME
+
+if [[ ! -e .bash-commons ]]; then
+    git clone -b 5383ccb8f6f2560179f50667fe4c0dfc845cea0f https://github.com/gruntwork-io/bash-commons .bash-commons
+fi
+
+source $DOTFILES_PATH/.bash-commons/modules/bash-commons/src/log.sh
+source $DOTFILES_PATH/.bash-commons/modules/bash-commons/src/os.sh
+
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
 git config --global user.name "OSer916"
