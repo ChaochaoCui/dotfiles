@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-
-set -euxo pipefail
+set -euo pipefail
 
 export BIN_DIR=$HOME/.local/bin
 export APPS_DIR=$HOME/.local/share/applications
@@ -13,9 +12,13 @@ mkdir -p ${APPS_DIR}
 mkdir -p ${ICONS_DIR}
 mkdir -p ${FONTS_DIR}
 
-cd alacritty/
-./install.sh
-cd -
 
-cd fonts/
-./install.sh
+for d in *; do
+    if [[ -d $d ]]; then
+        if [[ -x $d/install.sh ]]; then
+            cd $d
+            ./install.sh
+            cd -
+        fi
+    fi
+done

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -eux
+set -eu
 
 if [[ -e .done ]]; then
 	echo "Fonts has Installed!"

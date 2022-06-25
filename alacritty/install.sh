@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -eu
 
 if [[ -e .done ]]; then
 	echo "Alacritty has Installed!"
