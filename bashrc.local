@@ -1,9 +1,0 @@
-
-export_path() {
-   if [[ -e $1 ]]; then
-     export PATH=$1:$PATH
-   fi
-}
-
-export_path "$HOME/.local/bin"
-export_path "$HOME/.local/flutter/bin"
